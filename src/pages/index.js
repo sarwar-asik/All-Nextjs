@@ -19,7 +19,10 @@ const HomePage = () => {
           defaultSelectedKeys={['2']}
          
         >
+          <Button  type='primary'><Link href='/'>Home</Link> </Button>
           <Button  type='primary'><Link href='/news'>News</Link> </Button>
+          <Button  type='primary'><Link href='/product'>Products</Link> </Button>
+          <Button  type='primary'><Link href='/article'>Article</Link> </Button>
 
 
 
