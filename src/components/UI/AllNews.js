@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Card, Col, Row } from "antd";
 import {
   EditOutlined,
@@ -6,7 +6,7 @@ import {
   SettingOutlined,
   ArrowRightOutlined
 } from "@ant-design/icons";
-import Meta from "antd/es/card/Meta";
+
 import Image from "next/image";
 
 const AllNews = ({ allNews }) => {
@@ -37,13 +37,13 @@ const AllNews = ({ allNews }) => {
                 ]}
             
               >
-                <Meta
+                {/* <Meta
                 //   avatar={
                 //     <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />
                 //   }
                   title={news?.title}
                   description={news?.description}
-                />
+                /> */}
 
                 <p
             style={{
