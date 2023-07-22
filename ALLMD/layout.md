@@ -47,3 +47,44 @@
         HomePages.getLayout = function getLayout(page) {
             return <RootLayout>{page}</RootLayout>;
         };
+
+
+
+## nested(dashboard) layout Create >>>>
+
+#### src>components>layout>DashboardLayout.js(Create the layout) ::  
+
+     
+
+            const DashBoardLayout.js = ({children}) => {
+            return (
+                <div>
+                  <dashboardHeader />
+                  {children}
+                
+                </div>
+            );
+            };
+
+            export default DashBoardLayout.js;
+
+
+#### src>pages>AdminPage.js 
+
+        AdminPage.getLayout = function getLayout(page){
+            return (
+            <RootLayout>
+                <DashBoardLayout>
+                    {page}
+                </DashBoardLayout>
+            </RootLayout>
+            )
+        }
+#### src> pages>dashboard>dashboard.js >>>
+        dashboard.getLayout = function getLayout(page){
+        return (
+            <DashBoardLayout>
+                {page}
+            </DashBoardLayout>
+        )
+    }
