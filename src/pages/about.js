@@ -11,11 +11,6 @@ const ABoutPage = () => {
 
 export default ABoutPage;
 
-
 ABoutPage.getLayout = function getLayout(page) {
-  return (
-    <RootLayout>
-      {page}
-    </RootLayout>
-  )
+  return <RootLayout>{page}</RootLayout>;
 };

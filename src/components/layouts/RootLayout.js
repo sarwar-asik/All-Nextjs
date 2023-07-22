@@ -15,7 +15,7 @@ const RootLayout = ({ children }) => {
           theme="dark"
           mode="horizontal"
           defaultSelectedKeys={["2"]}
-          items={new Array(7).fill(null).map((_, index) => {
+          items={new Array(5).fill(null).map((_, index) => {
             const key = index + 1;
             return {
               key,
