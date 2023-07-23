@@ -13,7 +13,7 @@
      start server >>>
      npm run json-server
 
-#### fetch full data
+#### fetch full data with getStaticProps
 
     export const getStaticProps = async () => {
         const res = await fetch("http://localhost:5000/news");
@@ -33,8 +33,23 @@
         const {id,name} = allNews
     }
 
+###### fetch full data with getServerSideProps
+
+    export const getServerSideProps = async () => {
+        const res = await fetch("http://localhost:5000/news");
+        const data = await res.json();
+
+
+        return {
+            props: {
+            allNews: data,
+            },
+            // revalidate: 30,
+        };
+    };
+
 ### Fetch Dynamic data in pages>news>[newsId].js >>>
-     
+
     export const getStaticPaths = async () => {
         const res = await fetch(`http://localhost:5000/news`);
         const newses = await res.json();
@@ -49,7 +64,7 @@
 
         const res = await fetch(`http://localhost:5000/news/${params?.newsId}`);
         const data = await res.json();
-        
+
         return {
             props: {
             news: data,
@@ -57,3 +72,18 @@
         };
     };
 
+##### Fetch Dynamic data in pages>news>[newsId].js >>>
+
+     ** remove getStaticPath  ***
+
+        export const getServerSideProps = async (context) => {
+            const { params } = context;
+
+            const res = await fetch(`http://localhost:5000/news/${params?.newsId}`);
+            const data = await res.json();
+            return {
+                props: {
+                news: data,
+                },
+            };
+        };
