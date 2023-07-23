@@ -28,11 +28,13 @@ const RootLayout = ({ children }) => {
               style={{
                 color: "white",
                 backgroundColor: "#404040",
-                padding: "5px 10px",
+                padding: "5px 15px",
                 borderRadius: "3px",
+                fontSize:"0.7em",
+                marginInline:"1em"
               }}
             >
-              PH_NEWS PORTAL
+              PH_NEWS
             </Link>
           </h1>
         </div>

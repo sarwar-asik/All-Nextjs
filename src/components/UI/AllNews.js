@@ -8,6 +8,10 @@ import {
 } from "@ant-design/icons";
 
 import Image from "next/image";
+import Link from "next/link";
+
+const { Meta } = Card;
+
 
 const AllNews = ({ allNews }) => {
   console.log(allNews);
@@ -35,17 +39,20 @@ const AllNews = ({ allNews }) => {
                   <EditOutlined key="edit" />,
                   <EllipsisOutlined key="ellipsis" />,
                 ]}
+                
             
               >
-                {/* <Meta
+                <Meta
                 //   avatar={
                 //     <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />
                 //   }
                   title={news?.title}
                   description={news?.description}
-                /> */}
+                />
+                <h3>comment :: {news?.comment_count}</h3>
 
-                <p
+              <Link href={`/news/${news?.id}`}>
+              <p
             style={{
               fontSize: "20px",
               margin: "20px 0px",
@@ -58,7 +65,7 @@ const AllNews = ({ allNews }) => {
             }}
           >
             Keep Reading <ArrowRightOutlined />
-          </p>
+          </p></Link>
               </Card>
             </Col>
           );
