@@ -2,9 +2,15 @@ import Head from "next/head";
 import RootLayout from "@/components/Layouts/RootLayout";
 import Banner from "@/components/UI/Banner";
 import AllNews from "@/components/UI/AllNews";
+import { useGetNewsQuery } from "@/redux/api/api";
 
 const HomePage = ({ allNews }) => {
-  console.log("allNews ", allNews);
+  console.log( allNews);
+  const {data} = useGetNewsQuery()
+  
+  console.log("🚀 ~ file: index.js:10 ~ HomePage ~ data:", data)
+
+
   return (
     <>
       <Head>
@@ -17,7 +23,7 @@ const HomePage = ({ allNews }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Banner />
-      <AllNews allNews={allNews}></AllNews>
+      <AllNews allNews={data}></AllNews>
       <h3>All News </h3>
     </>
   );
