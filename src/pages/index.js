@@ -56,14 +56,30 @@ HomePage.getLayout = function getLayout(page) {
 //   };
 // };
 
+// export const getServerSideProps = async () => {
+//   const res = await fetch("http://localhost:5000/news");
+//   const data = await res.json();
+//   // console.log("🚀 ~ file: index.js:32 ~ getStaticProps ~ data:", data);
+
+//   return {
+//     props: {
+//       allNews: data,
+//     },
+//     // revalidate: 30,
+//   };
+// };
+
+// from src>pages>api>news.js ::::
+
+
 export const getServerSideProps = async () => {
-  const res = await fetch("http://localhost:5000/news");
+  const res = await fetch("http://localhost:3000/api/news");
   const data = await res.json();
   // console.log("🚀 ~ file: index.js:32 ~ getStaticProps ~ data:", data);
 
   return {
     props: {
-      allNews: data,
+      allNews: data?.data,
     },
     // revalidate: 30,
   };
