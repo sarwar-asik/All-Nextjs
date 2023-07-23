@@ -39,7 +39,7 @@ const RootLayout = ({ children }) => {
           </h1>
         </div>
         <Menu theme="dark" mode="vertical" className={styles.menu_items}>
-          <Link href="/allNews">
+          <Link href="/allnews">
             <items>
               <ProfileOutlined />
               All News

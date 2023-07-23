@@ -92,6 +92,8 @@ const Banner = () => (
       </Row>
     </div>
     {/* slider-2 */}
+
+    
     <div>
       <Row>
         <Col
