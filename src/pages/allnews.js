@@ -9,6 +9,7 @@ import {
 
 import Image from "next/image";
 import Link from "next/link";
+import RootLayout from "@/components/Layouts/RootLayout";
 
 const { Meta } = Card;
 
@@ -76,7 +77,9 @@ const Newses = ({ allNews}) => {
 };
 
 export default Newses;
-
+Newses.getLayout = function getLayout(page) {
+  return <RootLayout>{page}</RootLayout>;
+};
 
 export const getStaticProps = async () => {
   const res = await fetch("http://localhost:5000/news");
