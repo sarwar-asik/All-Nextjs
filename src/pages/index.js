@@ -32,7 +32,7 @@ const HomePage = ({ allNews }) => {
       {/* <Banner /> */}
       <DynamicBanner></DynamicBanner>
 
-      <AllNews allNews={data}></AllNews>
+      <AllNews allNews={data?.data}></AllNews>
       <h3>All News </h3>
     </>
   );
@@ -76,7 +76,7 @@ export const getServerSideProps = async () => {
   const res = await fetch("http://localhost:3000/api/news");
   const data = await res.json();
   // console.log("🚀 ~ file: index.js:32 ~ getStaticProps ~ data:", data);
-
+// console.log(data);
   return {
     props: {
       allNews: data?.data,

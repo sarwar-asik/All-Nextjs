@@ -49,7 +49,7 @@ const AllNews = ({ allNews }) => {
                   title={news?.title}
                   description={news?.description}
                 />
-                <h3>comment :: {news?.comment_count}</h3>
+                <h3>comment : {news?.comment_count}</h3>
 
               <Link href={`/news/${news?.id}`}>
               <p
