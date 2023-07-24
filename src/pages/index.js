@@ -22,7 +22,9 @@ const HomePage = () => {
        <h2
        style={{ textAlign: "center", marginTop: "10%" }}
        >Logged In user {session?.user?.email}</h2>
-       <Image src={session?.user?.image} alt="userPhoto" height={200} width={250} />
+       <Image src={session?.user?.image} alt="userPhoto" height={200} width={250}
+        style={{ textAlign: "center", marginTop: "10%",marginInline:"auto" }}
+        />
        <h5>Expires :{session?.expires}</h5>
       </>
        }
