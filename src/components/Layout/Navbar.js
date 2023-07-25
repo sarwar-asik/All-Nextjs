@@ -1,12 +1,38 @@
 import { Layout, Menu, Button } from "antd";
 const { Header } = Layout;
 import Link from "next/link";
-import { useSession, signOut } from "next-auth/react";
+import { useSession, signOut as NextSignOut} from "next-auth/react";
+import auth from "@/firebase/firebase.auth";
+import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
+
 
 const Navbar = () => {
   const { data: session } = useSession();
+
+
+  const [user, loading, error] = useAuthState(auth);
+  const [signOut ] = useSignOut(auth);
   console.log("🚀 ~ file: Navbar.js:9 ~ Navbar ~ session:", session);
 
+   const handleLogout =()=>{
+    if(session?.user){
+      // next-auth signout 
+      // signOut()
+      NextSignOut()
+    }
+    else if (user?.email){
+      // firebase signout 
+
+      signOut()
+
+    }
+
+   
+
+
+
+
+   }
   return (
     <Header
       style={{
@@ -36,10 +62,10 @@ const Navbar = () => {
           justifyContent: "space-between",
         }}
       >
-        {session?.user ? (
+        {(session?.user || user?.email) ? (
           <>
             <items>
-              <Button onClick={()=>signOut()} type="primary" danger>
+              <Button onClick={()=>handleLogout()} type="primary" danger>
                 Logout
               </Button>
             </items>
