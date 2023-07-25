@@ -1,27 +1,23 @@
 import { Button } from "antd";
-import React from 'react';
+import React from "react";
 import { GoogleOutlined, GithubOutlined } from "@ant-design/icons";
 import Head from "next/head";
 import styles from "@/styles/Login.module.css";
 import { signIn } from "next-auth/react";
 
-import { useForm } from 'react-hook-form';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useForm } from "react-hook-form";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "@/firebase/firebase.auth";
+
 // import { auth } from "@/firebase/firebase.config";
-
-
 
 //! firebase ///
 
 const LoginPage = () => {
-  const [
-    createUserWithEmailAndPassword,
-    user,
-    loading,
-    error,
-  ] = useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
 
+    console.log(user);
 
   const {
     handleSubmit,
@@ -32,13 +28,13 @@ const LoginPage = () => {
   const onSubmit = (data) => {
     // Handle form submission here
     // console.log(data);
-    const {email,password} =data
+    const { email, password } = data;
+    // console.log(email, password);
     createUserWithEmailAndPassword(email,password)
-
   };
-  const errorStyle ={
-    color:'red'
-  }
+  const errorStyle = {
+    color: "red",
+  };
   return (
     <div>
       <Head>
@@ -83,7 +79,9 @@ const LoginPage = () => {
               id="password"
               {...register("password", { required: true })}
             />
-            {errors.password && <span style={errorStyle}>Password is required</span>}
+            {errors.password && (
+              <span style={errorStyle}>Password is required</span>
+            )}
           </div>
 
           <button type="submit">Login</button>
