@@ -12,7 +12,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-      // className={inter.className}
+        // className={inter.className}
+        className="w-[90%] mx-auto text-center"
       >
         <header>
           <p>This is Header </p>
