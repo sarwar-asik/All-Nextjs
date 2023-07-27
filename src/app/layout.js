@@ -1,4 +1,6 @@
+import Navbar from "@/components/shared/Navbar";
 import "./globals.css";
+import Footer from "@/components/shared/Footer";
 // import { Inter } from 'next/font/google'
 
 // const inter = Inter({ subsets: ['latin'] })
@@ -13,15 +15,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         // className={inter.className}
-        className="w-[90%] mx-auto text-center"
+        className="w-[100%] mx-auto text-center"
       >
-        <header>
-          <p>This is Header </p>
-        </header>
+
+        <div className="min-h-screen text-xl">
         {children}
-        <footer>
-          <h2> This is Footer</h2>
-        </footer>
+        </div>
+     
       </body>
     </html>
   );

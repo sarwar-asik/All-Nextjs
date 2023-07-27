@@ -2,7 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
+
+body{
+  background: #ffff;
+  color: black;
+  font-family: cursive;
+}
+
+/*
+ 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

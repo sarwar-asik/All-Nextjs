@@ -20,4 +20,6 @@
                 );
             };
 
-        export default BlogDetails;
+        export default BlogDetails
+
+                    
